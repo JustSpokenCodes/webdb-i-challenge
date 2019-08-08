@@ -12,6 +12,6 @@ router.get('/', async (req,res) => {
     }catch (err) {
         res.status(500).json({message: "There arent any accounts here", error:err});
     }
-})
+});
 
 module.exports = router;
