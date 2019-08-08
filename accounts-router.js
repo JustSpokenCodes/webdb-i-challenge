@@ -18,9 +18,9 @@ router.get('/:id', async (req, res) => {
     const {id} = req.params;
 
     try {
-        const [accounts] = await db('accounts').where({id});
-        if (accounts) {
-            res.status(201).json(accounts);
+        const [account] = await db('accounts').where({id});
+        if (account) {
+            res.status(201).json(account);
         } else {
             res.status(404).json({message:`${id} could not be found in the accounts`});
         }
