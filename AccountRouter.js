@@ -33,8 +33,8 @@ router.post('/', async (req,res) => {
     const accData = req.body;
 
     try {
-        const accounts= await db('accounts').insert(accData);
-        res.status(201).json(accounts);
+        const account= await db('accounts').insert(accData);
+        res.status(201).json(account);
     } catch (err) {
         res.status(500).json({message: "cant find what your looking for"});
     }
@@ -70,5 +70,7 @@ router.delete('/:id', async (req,res) => {
         res.status(500).json({message: "could not find what your looking for", error: err });
     }
 });
+
+const AccountRouter = require("./AccountRouter");
 
 module.exports = router;
