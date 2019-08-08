@@ -29,4 +29,16 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.post('/', async (req,res) => {
+    const accData = req.body;
+
+    try {
+        const accounts= await db('accounts').insert(accData);
+        res.status(201).json(accounts);
+    } catch (err) {
+        res.status(500).json({message: "cant find what your looking for"});
+    }
+});
+
+
 module.exports = router;
